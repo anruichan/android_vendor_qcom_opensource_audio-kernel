@@ -2560,7 +2560,9 @@ static int msm_compr_trigger(struct snd_compr_stream *cstream, int cmd)
 	struct audio_client *ac = prtd->audio_client;
 	unsigned long fe_id = rtd->dai_link->id;
 	int rc = 0;
+
 	int bytes_to_write;
+
 	unsigned long flags;
 	int stream_id;
 	uint32_t stream_index;
@@ -2963,7 +2965,6 @@ static int msm_compr_trigger(struct snd_compr_stream *cstream, int cmd)
 				msm_compr_send_buffer(prtd);
 			}
 		}
-
 		atomic_set(&prtd->drain, 1);
 		spin_unlock_irqrestore(&prtd->lock, flags);
 #endif
